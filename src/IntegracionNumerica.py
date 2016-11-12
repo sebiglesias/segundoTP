@@ -1,3 +1,4 @@
+# coding=utf-8
 # Ejercicio 1
 import numpy as np
 import math as m
@@ -17,11 +18,11 @@ def trapecios(f, min, max, mDivs):
 
 def romberg(f, min, max, filas):
     I = np.zeros((filas, filas))
+    #La condición de corte puede ser también el error del algoritmo
     for k in range(0, filas):
-        # buscar la diferencia entre el valor obtenido en la iteracion n y la n-1, y definir la condicion de corte del loop
-        # richardson usando trapecios
+        #El primer paso, lo busco con trapecios
         I[k, 0] = trapecios(f, min, max, 2 ** k)
-        # aca aplico efectivamente romberg
+        # Ahora puedo aplicar el algoritmo de romberg de acuerdo a su fórmula
         for j in range(0, k):
             I[k, j + 1] = (4 ** (j + 1) * I[k, j] - I[k - 1, j]) / (4 ** (j + 1) - 1)
         print(I[k, 0:k + 1])
