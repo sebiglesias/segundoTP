@@ -11,6 +11,7 @@ def rungeKuttaOrden4(f, y0, x0, x, d):
         rk4 = f((xActual + d), yActual + (d * rk3))
         yActual = yActual + ((rk1 + 2*rk2 + 2*rk3 + rk4) * d / 6)
         xActual = xActual + d
+        print yActual
     return yActual
 
 func = lambda x, y: -2*x*y
