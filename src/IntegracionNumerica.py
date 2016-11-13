@@ -48,6 +48,8 @@ f2= lambda x: m.log(x,m.e)
 
 for i in range(1,11):
     print "m: ",i,"mi valor", trapecios(f1,2,3,i)
+for i in range(1,11):
+    print "m: ", i, "mi valor", trapecios(f2, 1, 3, i)
 
 romberg(f1,2,3,0.0000000001)
 romberg(f2,2,3,0.0000000001)
